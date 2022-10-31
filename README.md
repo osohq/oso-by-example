@@ -1,1 +1,1 @@
-# corey-oso-by-example
+# Oso by Example
