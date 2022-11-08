@@ -76,7 +76,7 @@ Once you have policy saved to your environment, the next step is to add authoriz
 
 </br>
 <p style="text-align:left;">
-    <a href="human-resources-application.md">← Previous</a>
+    <a href="0-human-resources-application.md">← Previous</a>
     <span style="float:right;">
         <a href="2-add-authz-data.md">→ Next</a>
     </span>
