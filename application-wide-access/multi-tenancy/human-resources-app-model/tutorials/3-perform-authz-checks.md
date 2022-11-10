@@ -15,11 +15,11 @@ Take another look at the policy we presented in the first section [1. Model Your
 
 ```ruby
 resource Organization {
-  ...
-  # You can read these rules as
-  # A user has THIS <permission> IF they have THIS <role>.
-  "employee_view" if "employee";
-  "admin_view" if "admin";
+    ...
+    # You can read these rules as
+    # A user has THIS <permission> IF they have THIS <role>.
+    "employee_view" if "employee";
+    "admin_view" if "admin";
 }
 ```
 

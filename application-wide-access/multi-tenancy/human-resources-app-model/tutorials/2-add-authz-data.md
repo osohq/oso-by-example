@@ -17,10 +17,10 @@ actor User {}
 
 resource Organization {
 	...
-  # Rule definitions for roles that
-  # are part of your Organization.
-	"employee_view" if "employee";
-  "admin_view" if "admin";
+    # Rule definitions for roles that
+    # are part of your Organization.
+    "employee_view" if "employee";
+    "admin_view" if "admin";
 }
 ```
 
