@@ -1,15 +1,12 @@
 # 2. Add Authorization data to Oso Cloud
-
 **In this section you will:**
-
 - Identify what data you’ll need for authorization
 - Write authorization data as facts.
 - Use the [Facts page](https://ui.osohq.com/facts/) to store authorization data in Oso Cloud.
 
 In the previous section you uploaded a policy to Oso Cloud. You can now add facts to Oso Cloud about the Organizations and the Users within those organizations. First, we’ll take a look at parts of the existing policy to understand what data you’ll need for authorization.
 
-# Identify Data Needed for Authorization
-
+## Identify Data Needed for Authorization
 You can get a sense of the data you’ll need for authorization by looking at the rules related to a particular `resource`. In the example policy we provided, there are two rules contained in the Organization resource block.
 
 ```ruby
@@ -41,8 +38,7 @@ Putting this all together yields the following set of information needed for aut
 > </div>
 </br>
 
-# Write Authorization Data as Facts
-
+## Write Authorization Data as Facts
 In the previous section we identified the information necessary for writing authorization data for the example policy. The table below provides concrete examples of that information which you can use to write as facts to store in Oso Cloud.
 
 | User | Organization | Role |
@@ -51,8 +47,7 @@ In the previous section we identified the information necessary for writing auth
 | Greg | Org 1 | employee |
 | Ashley | Org 4 | employee |
 
-## Use the Facts Page to Store Facts in Oso Cloud
-
+### Use the Facts Page to Store Facts in Oso Cloud
 Navigate to the [Facts](https://ui.osohq.com/facts/) page in your Oso Cloud environment.
 
 Click the “Add a fact” button.
@@ -93,7 +88,6 @@ When you’ve finished your Facts page will now display all the facts stored in 
 ---
 
 **Additional Resources**
-
 - [What are facts?](https://www.osohq.com/docs/reference/glossary#facts)
 
 </br>

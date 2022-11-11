@@ -1,15 +1,12 @@
 # 3. Perform Authorization Checks
-
 **In this section you will**:
-
 - Use Oso Cloud to perform authorization checks
 - Validate an authorization allowed result
 - Validate an authorization denied result
 
 Congratulations! If you are ready to perform authorization checks, that means you have an authorization policy and data that Oso Cloud can enforce. Now you’ll use the [Explain page](https://ui.osohq.com/explain/) to begin performing authorization checks against your policy and that data.
 
-# Writing Authorization Checks
-
+## Writing Authorization Checks
 Authorization checks ask specific questions about what actions an actor is *allowed* to perform. The types of checks that you can make come directly from the rules you write in your policy.
 Take another look at the policy we presented in the first section [1. Model Your Application’s Authorization](./1-model-your-app-authz.md). Here are the two rules we introduced in the *resource block*:
 
@@ -36,8 +33,7 @@ User:paula "admin_view" Organization:org_1
 
 Continue using this structure to run authorization checks against your policy.
 
-# Run the Authorization Check Using Explain
-
+## Run the Authorization Check Using Explain
 Begin by opening the [Explain page](https://ui.osohq.com/explain/).
 
 Use the Authorize edit box to enter an authorization check and click “Run” to perform the check.

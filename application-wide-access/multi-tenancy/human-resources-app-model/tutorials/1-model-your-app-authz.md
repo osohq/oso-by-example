@@ -1,16 +1,13 @@
 # 1. Model Your Application’s Authorization
-
 **In this section you will:**
-
 - Create a policy that models multitenancy in an HR application.
 - Copy and paste the policy into your Oso Cloud [Policy Editor](https://ui.osohq.com/policy/).
 
-![hr-platform-view.png](./images/hr-platform-view.png)
+![hr-app-diagram.png](./images/hr-app-diagram.png)
 
 Before diving into writing your authorization in a policy, you’ll want to have a clear picture of the application and its parts. As depicted in the diagram above, the human resources (HR) platform hosts many organizations. Each organization has its own set of users and those users have one of two roles: admin or employee. Users of this application have the ability to perform actions based on their role, but ****only**** *within* their organization. Our authorization policy should exist to enforce this view of the world.
 
-# Putting the Building Blocks in Place
-
+## Putting the Building Blocks in Place
 To begin building the policy, answer the following questions:
 
 1. Who uses the application? *(Users within an organization).*
@@ -69,7 +66,6 @@ Once you have policy saved to your environment, the next step is to add authoriz
 ---
 
 **Additional Resources**
-
 - [What is a policy?](https://www.osohq.com/docs/reference/glossary#policies)
 - [What is an actor?](https://www.osohq.com/docs/reference/glossary#actors)
 - [What is a resource?](https://www.osohq.com/docs/reference/glossary#resources)
