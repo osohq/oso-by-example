@@ -30,15 +30,22 @@ actor User {}
 #    Organizations are *what* Users interact with in
 #    the application.
 resource Organization {
+
 # 3. What actions require authorization?
 #    Permissions represent the actions Users can
 #    perform within an Organization.
-    permissions = ["admin_view", "employee_view"];
+    permissions = [
+        "admin_view",
+        "employee_view"
+    ];
 
 # 4. How are permissions granted within the application?
 #    Roles represent identities Users within
 #    Organizations may have.
-    roles = ["admin", "employee"];
+    roles = [
+        "admin",
+        "employee"
+    ];
 
 # 5. How are permissions attached to roles?
 #    The combination of roles and permissions are one
