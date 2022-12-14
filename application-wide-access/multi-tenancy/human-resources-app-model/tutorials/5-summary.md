@@ -1,5 +1,5 @@
 # Summary
-
+Discuss how this multi-tenancy example is foundational. The same pattern applies to many other use cases. Change the names and viola!
 <br/>
 
 ---

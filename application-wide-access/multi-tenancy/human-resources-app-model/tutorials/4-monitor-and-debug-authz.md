@@ -22,7 +22,7 @@ However, the *result* and what you *intend* as a result may differ. An authoriza
 succeed may fail. Similarly, an authorization check that failed may be one you expected to pass. The Explain page
 exists to help in these scenarios. It provides visibility into why an authorization check did or didn't succeed.
 
-### How it Works
+### Explain Page Layout
 There are 4 key areas to the page as numbered in the image below.
 ![explain-intro.png](./images/explain-intro.png)
 
