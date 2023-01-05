@@ -46,9 +46,7 @@ resource RewardsProgram {
 ###############################################################################
 # Each permission is only granted if the user has the appropriate role, and the
 # account is active.
-has_permission(user: User,
-               "add_card",
-               account: CardAccount) if
+has_permission(user: User, "add_card", account: CardAccount) if
     has_role(user, "owner", account) and
     is_active(account, true);
 
