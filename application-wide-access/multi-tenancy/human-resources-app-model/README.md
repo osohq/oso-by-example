@@ -1,4 +1,4 @@
-# Multi-tenancy Model Code Example
+# Multi-tenancy Authorization Pattern Code Example
 ## Dependencies
 1. Set the `OSO_AUTH` environment variable to your Oso Cloud API key ([Get an API Key](https://www.osohq.com/docs/get-started/quickstart/cli-quickstart#get-your-oso-cloud-api-key)).
 1. [Install the Oso Cloud CLI](https://www.osohq.com/docs/.get-started/quickstart/cli-quickstart#setup-the-oso-cloud-cli)
