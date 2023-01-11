@@ -7,7 +7,7 @@ resource CardAccount {
     ];
     permissions = [
         "add_card",
-        "view_accounts",
+        "view",
         "modify_accounts"
     ];
 }
@@ -18,7 +18,7 @@ resource CreditCard {
     ];
 
     permissions = [
-        "view_account",
+        "view",
         "make_transactions",
         "dispute_transactions",
         "modify_limits"
@@ -33,6 +33,7 @@ resource RewardsProgram {
     ];
 
     permissions = [
+        "view",
         "rewards",
         "bronze_rewards",
         "silver_rewards",
@@ -50,7 +51,7 @@ has_permission(user: User, "add_card", account: CardAccount) if
     has_role(user, "owner", account) and
     is_active(account, true);
 
-has_permission(user: User, "view_accounts", account: CardAccount) if
+has_permission(user: User, "view", account: CardAccount) if
     has_role(user, "owner", account) and
     is_active(account, true);
 
@@ -63,7 +64,7 @@ has_permission(user: User, "modify_accounts", account: CardAccount) if
 ###############################################################################
 # Only add the attribute condition is_active(account, true). Users should still
 # be able to view their account if their card is inactive.
-has_permission(user: User, "view_account", card: CreditCard) if
+has_permission(user: User, "view", card: CreditCard) if
     (has_role(user, "card_holder", card) or has_role(user, "owner", account)) and
     account matches CardAccount and
     has_relation(card, "parent_account", account) and
@@ -109,30 +110,44 @@ has_permission(user: User, "rewards", rewards_program: RewardsProgram) if
     has_role(user, "member", account) and
     is_active(account, true);
 
+# Users can only view rewards if they meet the same criteria above for rewards.
+has_permission(user: User, "view", rewards_program: RewardsProgram) if
+    has_role(user, "member", rewards_program) and
+    account matches CardAccount and
+    has_role(user, "member", account) and
+    is_active(account, true);
+
 has_permission(user: User, "bronze_rewards", rewards_program: RewardsProgram) if
     has_role(user, "member", rewards_program) and
     account matches CardAccount and
     has_role(user, "member", account) and
     is_active(account, true) and
-    rewards_status(account, "bronze");
+    rewards_status(user, account, "bronze");
 
 has_permission(user: User, "silver_rewards", rewards_program: RewardsProgram) if
     has_role(user, "member", rewards_program) and
     account matches CardAccount and
     has_role(user, "member", account) and
     is_active(account, true) and
-    rewards_status(account, "silver");
+    rewards_status(user, account, "silver");
 
 has_permission(user: User, "gold_rewards", rewards_program: RewardsProgram) if
     has_role(user, "member", rewards_program) and
     account matches CardAccount and
     has_role(user, "member", account) and
     is_active(account, true) and
-    rewards_status(account, "gold");
+    rewards_status(user, account, "gold");
 
 has_permission(user: User, "platinum_rewards", rewards_program: RewardsProgram) if
     has_role(user, "member", rewards_program) and
     account matches CardAccount and
     has_role(user, "member", account) and
     is_active(account, true) and
-    rewards_status(account, "platinum");
+    rewards_status(user, account, "platinum");
+
+has_role(user: User, "member", rewards_program: RewardsProgram) if
+    account matches CardAccount and
+    has_role(user, "owner", account) and
+    account_member matches User and
+    has_role(account_member, "member", account) and
+    has_role(account_member, "member", rewards_program);

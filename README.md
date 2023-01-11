@@ -1,6 +1,7 @@
 # Oso by Example
 
 ## Contents
-| Tutorial | Level | Description | Prerequisites |
-|----------|-------|-------------|---------------|
-| **[Exploring Multi-tenancy with a Human Resources Application](./application-wide-access/multi-tenancy/human-resources-app-model/tutorials/0-human-resources-application.md)** | Application-wide Authorization </br> -- Beginner -- | *Use Oso Cloud to create an authorization model for a multi-tenancy application.* | None
+| Tutorial | Code Example | Level | Description | Prerequisites |
+|----------|-------------|-------|-------------|---------------|
+| **[Writing Your First Policy](https://www.osohq.com/docs/tutorials/writing-your-first-policy/authz-for-multi-tenancy-apps)** | [code](./application-wide-access/multi-tenancy/human-resources-app-model/tutorials/0-human-resources-application.md) | Application-wide Authorization</br>*&mdash;Beginner&mdash;* | *Use Oso Cloud to create an authorization model for a multi-tenancy application.* | None
+| **[Using Attributes to Control Permissions](https://www.osohq.com/docs/tutorials/controlling-permissions-with-attributes/overview)** | [code](./resource-specific-access/credit-card-app-model/README.md) | Resource-specific Authorization<br/>*&mdash;Intermediate&mdash;* | *Model aspects of a credit card app (accounts, transaction limits, rewards program, ect.) using permissions, attributes, and context facts).* | &bull; [Patterns in Relationship Based Access Control](https://www.osohq.com/docs/tutorials/four-steps-to-authz/app-modeling-basics/rebac-patterns)<br/> &bull; [Patterns in Attribute Based Access Control](https://www.osohq.com/docs/tutorials/four-steps-to-authz/app-modeling-basics/abac-patterns)<br/>

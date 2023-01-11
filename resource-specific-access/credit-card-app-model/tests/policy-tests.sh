@@ -23,16 +23,17 @@ oso-cloud tell has_relation CreditCard:kristians-card parent_account CardAccount
 
 # 4.0 Perform authorization checks
 # True
+echo "True assertions:"
 oso-cloud authorize User:paula add_card CardAccount:paulas-account-123 \
     -c "is_active CardAccount:paulas-account-123 Boolean:true"
 
-oso-cloud authorize User:paula view_accounts CardAccount:paulas-account-123 \
+oso-cloud authorize User:paula view CardAccount:paulas-account-123 \
     -c "is_active CardAccount:paulas-account-123 Boolean:true"
 
 oso-cloud authorize User:paula modify_accounts CardAccount:paulas-account-123 \
     -c "is_active CardAccount:paulas-account-123 Boolean:true"
 
-oso-cloud authorize User:paula view_account CreditCard:paulas-card \
+oso-cloud authorize User:paula view CreditCard:paulas-card \
     -c "is_active CardAccount:paulas-account-123 Boolean:true"
 
 oso-cloud authorize User:paula make_transactions CreditCard:paulas-card \
@@ -46,7 +47,7 @@ oso-cloud authorize User:paula modify_limits CreditCard:paulas-card \
     -c "is_active CardAccount:paulas-account-123 Boolean:true" \
     -c "is_active CreditCard:paulas-card Boolean:true"
 
-oso-cloud authorize User:paula view_account CreditCard:kristians-card \
+oso-cloud authorize User:paula view CreditCard:kristians-card \
     -c "is_active CardAccount:paulas-account-123 Boolean:true" \
 
 oso-cloud authorize User:paula make_transactions CreditCard:kristians-card \
@@ -65,26 +66,45 @@ oso-cloud authorize User:kristian rewards RewardsProgram:rewards-r-us \
 
 oso-cloud authorize User:kristian bronze_rewards RewardsProgram:rewards-r-us \
     -c "is_active CardAccount:paulas-account-123 Boolean:true" \
-    -c "rewards_status CardAccount:paulas-account-123 bronze"
+    -c "rewards_status User:kristian CardAccount:paulas-account-123 bronze"
 
 oso-cloud authorize User:kristian silver_rewards RewardsProgram:rewards-r-us \
     -c "is_active CardAccount:paulas-account-123 Boolean:true" \
-    -c "rewards_status CardAccount:paulas-account-123 silver"
+    -c "rewards_status User:kristian CardAccount:paulas-account-123 silver"
 
 oso-cloud authorize User:kristian gold_rewards RewardsProgram:rewards-r-us \
     -c "is_active CardAccount:paulas-account-123 Boolean:true" \
-    -c "rewards_status CardAccount:paulas-account-123 gold"
+    -c "rewards_status User:kristian CardAccount:paulas-account-123 gold"
 
 oso-cloud authorize User:kristian platinum_rewards RewardsProgram:rewards-r-us \
     -c "is_active CardAccount:paulas-account-123 Boolean:true" \
-    -c "rewards_status CardAccount:paulas-account-123 platinum"
+    -c "rewards_status User:kristian CardAccount:paulas-account-123 platinum"
 
 # False
+echo "False assertions:"
 oso-cloud authorize User:kristian add_card CardAccount:paulas-account-123
-oso-cloud authorize User:kristian view_accounts CardAccount:paulas-account-123
+oso-cloud authorize User:kristian view CardAccount:paulas-account-123
 oso-cloud authorize User:kristian modify_accounts CardAccount:paulas-account-123
 
 oso-cloud authorize User:kristian bronze_rewards RewardsProgram:rewards-r-us
 
 oso-cloud authorize User:kristian platinum_rewards RewardsProgram:rewards-r-us \
     -c "is_active CardAccount:paulas-account-123 Boolean:true"
+
+echo "Display Resource Lists"
+oso-cloud list User:paula view CardAccount \
+    -c "is_active CardAccount:paulas-account-123 Boolean:true" \
+    -c "is_active CreditCard:paulas-card Boolean:true"
+
+oso-cloud list User:paula view CreditCard \
+    -c "is_active CardAccount:paulas-account-123 Boolean:true" \
+    -c "is_active CreditCard:paulas-card Boolean:true"
+
+oso-cloud list User:paula view RewardsProgram \
+    -c "is_active CardAccount:paulas-account-123 Boolean:true" \
+    -c "is_active CreditCard:paulas-card Boolean:true"
+
+oso-cloud actions User:kristian RewardsProgram:rewards-r-us \
+    -c "is_active CardAccount:paulas-account-123 Boolean:true" \
+    -c "is_active CreditCard:paulas-card Boolean:true" \
+    -c "rewards_status User:kristian CardAccount:paulas-account-123 bronze"
