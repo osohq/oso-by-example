@@ -1,4 +1,11 @@
 # Oso by Example
+## Prerequisites
+1. Create an Oso Cloud account. Go to https://ui.osohq.com.
+1. Install the Oso Cloud CLI client.
+    ```bash
+    curl -L https://cloud.osohq.com/install.sh | bash
+    ```
+1. Use the [Install page](https://ui.osohq.com/install) to see other available options.
 
 ## Contents
 | Tutorial | Code Example | Level | Description | Prerequisites |
