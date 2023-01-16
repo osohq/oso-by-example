@@ -5,7 +5,8 @@
     ```bash
     curl -L https://cloud.osohq.com/install.sh | bash
     ```
-1. Use the [Install page](https://ui.osohq.com/install) to see other available options.
+> *__NOTE__*: Some tutorials access the Oso client from within an application. Use the
+> [Install page](https://ui.osohq.com/install) to see the language-specific options available.
 
 ## Contents
 | Tutorial | Code Example | Level | Description | Prerequisites |
