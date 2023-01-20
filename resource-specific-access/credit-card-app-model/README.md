@@ -1,7 +1,7 @@
 # Credit Card Application Model Code Example
-## Dependencies
+## Prerequisites
+1. [Install the Oso Cloud CLI client](https://ui.osohq.com/install/?tab=cli).
 1. Set the `OSO_AUTH` environment variable to your Oso Cloud API key ([Get an API Key](https://www.osohq.com/docs/get-started/quickstart/cli-quickstart#get-your-oso-cloud-api-key)).
-1. [Install the Oso Cloud CLI](https://www.osohq.com/docs/.get-started/quickstart/cli-quickstart#setup-the-oso-cloud-cli)
 
 ## Understanding the Model
 Read the tutorial [Using Attributes to Control Permissions](https://www.osohq.com/docs/tutorials/controlling-permissions-with-attributes/overview).
