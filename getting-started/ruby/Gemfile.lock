@@ -1,0 +1,34 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    faraday (2.5.2)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
+    faraday-retry (2.0.0)
+      faraday (~> 2.0)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
+    oso-cloud (1.0.0)
+      faraday (~> 2.5.2)
+      faraday-retry (~> 2.0.0)
+    rack (2.2.6.2)
+    rack-protection (3.0.5)
+      rack
+    ruby2_keywords (0.0.5)
+    sinatra (3.0.5)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.0.5)
+      tilt (~> 2.0)
+    tilt (2.0.11)
+
+PLATFORMS
+  arm64-darwin-21
+
+DEPENDENCIES
+  oso-cloud
+  sinatra
+
+BUNDLED WITH
+   2.4.5
