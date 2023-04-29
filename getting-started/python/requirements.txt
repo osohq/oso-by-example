@@ -1,2 +1,2 @@
-oso-cloud
-flask
+oso-sdk[fastapi]>=0.3.1,<1
+uvicorn[standard]>=0.21.0

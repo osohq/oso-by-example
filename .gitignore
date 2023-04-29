@@ -6,6 +6,8 @@ node_modules
 __pycache__
 .venv
 .vscode
+.mypy_cache
+.ruff_cache
 
 getting-started/node/target
 getting-started/dotnet/*/bin
