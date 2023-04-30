@@ -1,6 +1,15 @@
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?machine=basicLinux32gb&repo=558558532&ref=main&devcontainer_path=.devcontainer%2Fdotnet%2Fdevcontainer.json)
 
-# Starter policy
+# Anatomy of the sample application
+
+The sample application comprises two routes: `/org` and `/repo`, for the `Organization` and `Repository` objects. Each
+route accepts a path parameter corresponding to the object's ID; e.g., `/org/acme` is accessing the `acme`
+`Organization`. Both routes accept `GET` and `POST` requests.
+
+This sample application is integrated with Oso Cloud to provide enforcement on the routes. It is intended to serve as an
+example, so please make changes to better resemble a more familiar domain!
+
+## Starter policy
 
 This application assumes the [starter policy](../starter_policy.polar) is active in your Oso Cloud environment.
 
