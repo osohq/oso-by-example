@@ -1,0 +1,23 @@
+{
+    "name": "Python",
+    "image": "mcr.microsoft.com/devcontainers/python:0-3.11",
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "getting-started/python/app.py",
+                "getting-started/python/README.md"
+            ]
+        },
+        "vscode": {
+            "extensions": [
+                "osohq.oso",
+                "ms-python.python"
+            ],
+            "settings": {
+                "terminal.integrated.cwd": "getting-started/python",
+                "oso.polarLanguageServer.validations": "cloud"
+            }
+        }
+    },
+    "postCreateCommand": "pip3 install --user -r getting-started/python/requirements.txt"
+}

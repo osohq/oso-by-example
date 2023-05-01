@@ -1,0 +1,22 @@
+{
+	"name": "Ruby",
+	"image": "mcr.microsoft.com/devcontainers/ruby:0-3",
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "getting-started/ruby/app.rb",
+                "getting-started/ruby/README.md"
+            ]
+        },
+        "vscode": {
+            "extensions": [
+                "osohq.oso"
+            ],
+            "settings": {
+                "terminal.integrated.cwd": "getting-started/ruby",
+                "oso.polarLanguageServer.validations": "cloud"
+            }
+        }
+    },
+    "postCreateCommand": "cd getting-started/ruby && bundle install"
+}
