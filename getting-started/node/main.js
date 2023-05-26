@@ -1,16 +1,12 @@
-const { init } = require("@osohq/express");
+const { Oso } = require("oso-cloud");
 const express = require("express");
 
 async function start() {
   const app = express();
 
   // remember to update this before running the server!
-  const apiKey =
-    "<please provide your api key here>";
-  const oso = init({
-    apiKey,
-    defaultActorId: (_req) => "anonymous",
-  });
+  const apiKey = "<please provide your api key here>";
+  const oso = new Oso("https://cloud.osohq.com", apiKey);
 
   /**
    * This is the "view" endpoint for an Organization, keyed on `org_id`.
@@ -28,13 +24,17 @@ async function start() {
    */
   app.get(
     "/org/:org_id",
-    oso.enforce({
-      resourceId: ":org_id",
-      action: "view",
-      resourceType: "Organization",
-    }),
     async (req, res) => {
       const orgId = req.params.org_id;
+      const actor = {type: "User", id: "anonymous"};
+      const resource = {type: "Organization", id: orgId};
+
+      if (await oso.authorize(actor, "view", resource) === false) {
+        // Handle authorization failure
+        res.status(404).send("Not Found");
+        return;
+      }
+
       res.status(200).send(`{"id": ${orgId}}`);
     }
   );
@@ -55,13 +55,17 @@ async function start() {
    */
   app.post(
     "/org/:org_id",
-    oso.enforce({
-      resourceId: ":org_id",
-      action: "edit",
-      resourceType: "Organization",
-    }),
     async (req, res) => {
       const orgId = req.params.org_id;
+      const actor = {type: "User", id: "anonymous"};
+      const resource = {type: "Organization", id: orgId};
+
+      if (await oso.authorize(actor, "edit", resource) === false) {
+        // Handle authorization failure
+        res.status(404).send("Not Found");
+        return;
+      }
+
       res.status(200).send(`{"id": ${orgId}}`);
     }
   );
@@ -97,13 +101,17 @@ async function start() {
    */
   app.get(
     "/repo/:repo_id",
-    oso.enforce({
-      resourceId: ":repo_id",
-      action: "view",
-      resourceType: "Repository",
-    }),
     async (req, res) => {
       const repoId = req.params.repo_id;
+      const actor = {type: "User", id: "anonymous"};
+      const resource = {type: "Repository", id: repoId};
+
+      if (await oso.authorize(actor, "view", resource) === false) {
+        // Handle authorization failure
+        res.status(404).send("Not Found");
+        return;
+      }
+
       res.status(200).send(`{"id": ${repoId}}`);
     }
   );
@@ -139,13 +147,17 @@ async function start() {
    */
   app.post(
     "/repo/:repo_id",
-    oso.enforce({
-      resourceId: ":repo_id",
-      action: "edit",
-      resourceType: "Repository",
-    }),
     async (req, res) => {
       const repoId = req.params.repo_id;
+      const actor = {type: "User", id: "anonymous"};
+      const resource = {type: "Repository", id: repoId};
+
+      if (await oso.authorize(actor, "edit", resource) === false) {
+        // Handle authorization failure
+        res.status(404).send("Not Found");
+        return;
+      }
+
       res.status(200).send(`{"id": ${repoId}}`);
     }
   );
